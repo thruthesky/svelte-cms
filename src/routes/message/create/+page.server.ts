@@ -15,9 +15,10 @@ export const actions = {
 		console.log('server', data);
 
 		const conn = await mariadb.createConnection({
-			user: 'cms',
-			password: DB_PW,
-			database: 'cms'
+			host: process.env.DB_HOST,
+			user: process.env.DB_USER,
+			password: process.env.DB_PW,
+			database: process.env.DB_DBNAME
 		});
 
 		await conn.query(

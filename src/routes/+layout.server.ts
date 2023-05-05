@@ -10,9 +10,10 @@ export async function load({ cookies }) {
 	}
 
 	const conn = await mariadb.createConnection({
-		user: 'cms',
-		password: DB_PW,
-		database: 'cms'
+		host: process.env.DB_HOST,
+		user: process.env.DB_USER,
+		password: process.env.DB_PW,
+		database: process.env.DB_DBNAME
 	});
 
 	const rows = await conn.query('SELECT  * FROM users WHERE idx=?', [idx]);
