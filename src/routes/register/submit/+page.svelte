@@ -4,7 +4,7 @@
 	console.log(data);
 </script>
 
-<h1>Contratulations!</h1>
+<h1>Congratulations!</h1>
 
 {#if data.code}
 	<h2>Error: {data.code}</h2>

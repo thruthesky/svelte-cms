@@ -5,10 +5,12 @@ export async function load({ url, cookies }) {
 	const password = url.searchParams.get('password');
 
 	const conn = await mariadb.createConnection({
+
 		host: process.env.DB_HOST,
 		user: process.env.DB_USER,
 		password: process.env.DB_PW,
 		database: process.env.DB_DBNAME
+
 	});
 
 	const rows = await conn.query('SELECT * FROM users WHERE id=?', [id]);
@@ -22,6 +24,7 @@ export async function load({ url, cookies }) {
 	}
 
 	cookies.set('idx', user.idx, { path: '/' });
+	cookies.set('id', user.id, { path: '/' });
 
 	return user;
 }
