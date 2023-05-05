@@ -9,10 +9,10 @@ export async function load({ cookies }) {
 	}
 
 	const conn = await mariadb.createConnection({
-
+		host: process.env.DB_HOST,
 		user: process.env.DB_USER,
 		password: process.env.DB_PW,
-		database: process.env.DB_NAME,
+		database: process.env.DB_DBNAME
 
 	});
 	

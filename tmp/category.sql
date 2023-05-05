@@ -1,0 +1,13 @@
+USE cms;
+
+DROP TABLE categories;
+
+CREATE TABLE categories (
+	id INT(10) PRIMARY KEY AUTO_INCREMENT,
+	category VARCHAR(100) NOT NULL,
+	description LONGTEXT NULL,
+	createdBy INT(10) UNSIGNED,
+	createdAt INT(10) DEFAULT UNIX_TIMESTAMP(),
+	updatedAt INT(10) DEFAULT UNIX_TIMESTAMP(),
+	FOREIGN KEY (createdBY) REFERENCES users (idx)
+);
