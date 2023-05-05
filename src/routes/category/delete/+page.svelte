@@ -2,47 +2,16 @@
 	import { onMount } from 'svelte';
 
 	export let data;
-    export let form;
-
-	// let selectedID: number;
-	// let getCategoryName: string;
-	// let getCategoryDesc: string;
-
-
-    // TODO display details first
-
-    // function scanCategoryIndex(idToFind: number) {
-    //     let rowPointer = 0;
-    //     let caughtRecord = 0;
-    //     for (rowPointer = 0; rowPointer < data.fetchedCategories.length; rowPointer++) {
-    //         if (data.fetchedCategories[rowPointer].id == idToFind) {
-    //             caughtRecord = rowPointer;
-
-    //             alert("SELECTEDID" + caughtRecord.toString());
-    //         }
-    //     }
-    //     return caughtRecord;
-    // }
-	// function updateCategoryForm() {
-    //     scanCategoryIndex(selectedID);
-	// }
-
-	// onMount(async () => {
-	// 	if (data.fetchedCategories.length > 0) {
-	// 		selectedID = data.fetchedCategories[0].id;
-	// 		getCategoryName = data.fetchedCategories[0].category;
-	// 		getCategoryDesc = data.fetchedCategories[0].description;
-	// 	}
-	// });
+	export let form;
 </script>
 
 <h1>DELETE Category</h1>
 {#if form}
-    {#if form.success}
-        <p>Successful in deeting! Check if it is still on the list</p>
-    {:else}
-        <p>Error: {form.error_message}</p>
-    {/if}
+	{#if form.success}
+		<p>Successful in deleting! Check if it is still on the list</p>
+	{:else}
+		<p>Error: {form.error_message}</p>
+	{/if}
 {/if}
 <form method="post">
 	<div class="form_container">
