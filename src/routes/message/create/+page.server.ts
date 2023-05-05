@@ -1,31 +1,33 @@
-// import mariadb from 'mariadb';
-// import { DB_PW } from '$env/static/private';
 
-// interface MessageCreateRequest {
-// 	idx_sender: number;
-// 	idx_receiver: number;
-// 	title: string;
-// 	content: string;
-// }
+import mariadb from 'mariadb';
 
-// export const actions = {
-// 	default: async (event) => {
-// 		const data = (await event.request.formData()) as any as MessageCreateRequest;
-// 		const idx = event.cookies.get('idx');
-// 		console.log('server', data);
+export const actions = {
+	default: async (event:any) => {
+		const data = (await event.request.formData());
+		const idx = event.cookies.get('idx');
 
-// 		const conn = await mariadb.createConnection({
-// 			user: 'cms',
-// 			password: DB_PW,
-// 			database: 'cms'
-// 		});
+		// console.log(idx)
+		// console.log('server', data);
+		const conn = await mariadb.createConnection({
 
-// 		await conn.query(
-// 			'INSERT INTO messages (idx_sender, idx_receiver, title, content, createdAt) VALUES (?, ?, ?, ?, UNIX_TIMESTAMP())',
-// 			[data.idx_sender, idx, data.title, data.content]
-// 		);
-// 		return { success: true };
-// 	}
-// };
+			host: process.env.DB_HOST,
+			user: process.env.DB_USER,
+			password: process.env.DB_PW,
+			database: process.env.DB_DBNAME
 
+		});
 
+		await conn.query(
+			'INSERT INTO messages (idx_sender,idx_receiver,title, content, createdAt) VALUES (?,?,?,?,UNIX_TIMESTAMP())',
+			[idx,data.get('idx_receiver'),data.get('title'),data.get('content')]);
+		// console.log(FormData);
+
+		console.log(data.get('title'));
+		console.log(data.get('content'));
+		console.log(data.get('idx_receiver'));
+
+		// console.log(idx)
+		// console.log(res);
+		return { success: true };
+	}
+};
