@@ -10,12 +10,10 @@
 	<h1>Welcome to CMS</h1>
 	<button on:click={() => act1 = false}>Make Note</button>
 
-	{#if $loginUser}
-		<p>Hi, {$loginUser.name}!</p>
-	{:else}
-		<p>Please <a href="/login">login</a></p>
-		<p>Or <a href="/register">register</a> to continue.</p>
-	{/if}
+{#if $loginUser}
+	<p>Hi, {$loginUser.name}!</p>
+	<p>My Id is {$loginUser.id}</p>
+
 {:else}
 	{#if act2}
 		<List on:click={() => act2 = false}/>
