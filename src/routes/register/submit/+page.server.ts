@@ -9,9 +9,9 @@ export async function load({ request, url }) {
 	const gender = url.searchParams.get('gender');
 
 	const conn = await mariadb.createConnection({
-		user: 'cms',
+		user: 'root',
 		password: DB_PW,
-		database: 'cms'
+		database: 'test5'
 	});
 
 	const idRes = await conn.query('SELECT idx FROM users WHERE id=?', [id]);

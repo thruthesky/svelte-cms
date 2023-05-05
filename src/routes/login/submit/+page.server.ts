@@ -6,9 +6,9 @@ export async function load({ url, cookies }) {
 	const password = url.searchParams.get('password');
 
 	const conn = await mariadb.createConnection({
-		user: 'cms',
+		user: 'root',
 		password: DB_PW,
-		database: 'cms'
+		database: 'test5'
 	});
 
 	const rows = await conn.query('SELECT * FROM users WHERE id=?', [id]);

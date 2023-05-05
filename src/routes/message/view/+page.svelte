@@ -1,3 +1,9 @@
+<script>
+
+    export let data;
+    console.log('from view', data)
+    console.log('from view:', data.code)
+</script>
 <h1>Message View</h1>
 
-<div>sender name, title, date</div>
+<div><p>asdf</p><button >Edit</button><button>delete</button></div>

@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { loginUser } from '$lib/stores/app.store';
 	import { goto } from '$app/navigation';
 </script>
@@ -23,4 +23,16 @@
 	input {
 		margin-bottom: 10px;
 	}
-</style>
+</style> -->
+<script>
+
+	
+
+</script>
+<h1><i>note</i></h1>
+<form action="/message/view">
+	<input placeholder="Enter Here" />
+	<button>submit</button>
+</form>
+
+
