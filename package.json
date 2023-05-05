@@ -3,7 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
+
 		"dev": "MODE=development DB_HOST=localhost DB_USER=root DB_PW=asdf DB_NAME=cms vite dev --host",
+
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",

@@ -8,8 +8,11 @@
 	<a href="/">Home</a> | <a href="/register">Register</a> | <a href="/login">Login</a> |
 	<a href="/logout">Logout</a>
 	|
+
 	<a href="/menu">Menu</a> | User: List, View, Edit, Delete (kian) | Category: CRUD (Create,
 	Read(LIST), Update, Delete ) (chris) | Message: CRUD. (vin). <a href="/message/create">Create Message</a>,
 	<a href="/message/list">List Messages</a>, View Message, Update, Delete.
+
 </header>
+<hr>
 <slot />
