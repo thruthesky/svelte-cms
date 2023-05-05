@@ -1,4 +1,3 @@
-import { DB_PW } from '$env/static/private';
 import mariadb from 'mariadb';
 
 export async function load({ cookies }) {
@@ -10,9 +9,9 @@ export async function load({ cookies }) {
 	}
 
 	const conn = await mariadb.createConnection({
-		user: 'cms',
-		password: DB_PW,
-		database: 'cms'
+		user: process.env.DB_USER,
+		password: process.env.DB_PW,
+		database: process.env.DB_NAME,
 	});
 
 	const rows = await conn.query('SELECT  * FROM users WHERE idx=?', [idx]);
@@ -21,3 +20,5 @@ export async function load({ cookies }) {
 		loginUser: rows[0]
 	};
 }
+
+

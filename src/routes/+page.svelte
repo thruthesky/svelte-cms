@@ -6,6 +6,7 @@
 
 {#if $loginUser}
 	<p>Hi, {$loginUser.name}!</p>
+	<p>My Id is {$loginUser.id}</p>
 {:else}
 	<p>Please <a href="/login">login</a></p>
 	<p>Or <a href="/register">register</a> to continue.</p>
