@@ -4,4 +4,9 @@
 
 <h1>Welcome to CMS</h1>
 
-Hi, {$loginUser.name}!
+{#if $loginUser}
+	<p>Hi, {$loginUser.name}!</p>
+{:else}
+	<p>Please <a href="/login">login</a></p>
+	<p>Or <a href="/register">register</a> to continue.</p>
+{/if}

@@ -3,6 +3,11 @@ import mariadb from 'mariadb';
 
 export async function load({ cookies }) {
 	const idx = cookies.get('idx');
+	if (!idx) {
+		return {
+			loginUser: null
+		};
+	}
 
 	const conn = await mariadb.createConnection({
 		user: 'cms',

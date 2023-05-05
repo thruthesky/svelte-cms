@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-interface LoginUser {
+export interface LoginUser {
 	idx: number;
 	id: string;
 	password: string;
@@ -9,4 +9,4 @@ interface LoginUser {
 	gender: string;
 	createdAt: number;
 }
-export const loginUser = writable({} as LoginUser);
+export const loginUser = writable({} as LoginUser | null);

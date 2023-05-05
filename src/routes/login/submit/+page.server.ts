@@ -11,17 +11,17 @@ export async function load({ url, cookies }) {
 		database: 'cms'
 	});
 
-	const rows = await conn.query('SELECT idx, password FROM users WHERE id=?', [id]);
+	const rows = await conn.query('SELECT * FROM users WHERE id=?', [id]);
 	if (rows.length === 0) {
 		return { code: 'auth/id-not-found' };
 	}
 
-	const row = rows[0];
-	if (row.password !== password) {
+	const user = rows[0];
+	if (user.password !== password) {
 		return { code: 'auth/password-not-match' };
 	}
 
-	cookies.set('idx', row.idx, { path: '/' });
+	cookies.set('idx', user.idx, { path: '/' });
 
-	return { message: 'Hello from the server!' };
+	return user;
 }
