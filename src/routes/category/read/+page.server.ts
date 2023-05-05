@@ -18,7 +18,7 @@ export async function load({ url }) {
 		'SELECT * FROM categories ORDER BY createdAt DESC'
 	);
 	if (fetchAllCategories.length > 0) {
-		messageResult = 'Found ' + fetchAllCategories.length + ' categories in the forum.';
+		messageResult = 'Found ' + fetchAllCategories.length + ' categories.';
 	} else {
 		messageResult = 'No Forum Topics found.';
 	}

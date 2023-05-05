@@ -56,7 +56,7 @@
 				</select>
 			</label>
 		</div>
-		<button type="submit">Update</button>
+		<button type="submit">Delete</button>
 	</div>
 </form>
 
